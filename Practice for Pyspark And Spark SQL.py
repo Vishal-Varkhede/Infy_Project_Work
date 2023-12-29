@@ -261,9 +261,9 @@ dbutils.fs.ls(f"/FileStore/tables/okj.jpg")
 
 sample_img_dir = f"/FileStore/tables/okj.jpg"
 
-image_df = spark.read.format("image").load(sample_img_dir)
+Image_df = spark.read.format("image").load(sample_img_dir)
 
-display(image_df) 
+display(Image_df) 
 
 # COMMAND ----------
 
