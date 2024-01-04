@@ -230,7 +230,23 @@ diabetes = spark.sql(""" select * from default.diabetes """)
 
 # COMMAND ----------
 
+circuits.limit(10).display()
 
+# COMMAND ----------
+
+# dbutils.widgets.text("namee", "Brickster", "Name")
+# dbutils.widgets.multiselect("colorss", "orange", ["red", "orange", "black", "blue"], "Traffic Sources")
+
+# COMMAND ----------
+
+name = dbutils.widgets.get("name")
+colors = dbutils.widgets.get("colors").split(",")
+
+html = "<div>Hi {}! Select your color preference.</div>".format(name)
+for c in colors:
+  html += """<label for="{}" style="color:{}"><input type="radio"> {}</label><br>""".format(c, c, c)
+
+displayHTML(html)
 
 # COMMAND ----------
 
@@ -267,7 +283,7 @@ display(Image_df)
 
 # COMMAND ----------
 
-
+print("hello")
 
 # COMMAND ----------
 
