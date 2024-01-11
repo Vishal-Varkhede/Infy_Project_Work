@@ -37,6 +37,10 @@ product_data = spark.sql(""" select * from default.product_data_csv""")
 
 # COMMAND ----------
 
+sales_data.display()
+
+# COMMAND ----------
+
 sales_data.write.format("delta").option("mergeSchema","True").mode("overwrite").saveAsTable("default.sales_data_bronze")
 
 order_data.write.format("delta").option("mergeSchema","True").mode("overwrite").saveAsTable("default.order_data_bronze")

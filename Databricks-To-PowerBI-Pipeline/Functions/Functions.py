@@ -12,7 +12,7 @@ from delta.tables import *
 from pyspark.sql.window import Window
 from pyspark.sql import DataFrame
 from pyspark.sql.functions import udf
-from pyspark.sql.types import ArrayType, StringType
+#from pyspark.sql.types import ArrayType, StringType
 from fuzzywuzzy import fuzz
 
 # COMMAND ----------

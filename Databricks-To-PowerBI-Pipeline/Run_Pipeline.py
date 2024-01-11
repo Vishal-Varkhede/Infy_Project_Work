@@ -38,7 +38,7 @@ Creation_Of_Gold_Tables_From_Silver_Tables         = './Creation_Of_Gold_Tables_
 try :
   step = int(dbutils.widgets.get("step"))
 except Exception:
-  step = 1
+  step = 2
 
 try :
   step_end = int(dbutils.widgets.get("step_end"))
@@ -47,6 +47,18 @@ except Exception:
 
 print("start : ",step)
 print("end   : ",step_end)
+
+# COMMAND ----------
+
+# if step == 1:
+#     try:
+#         print('Running step 1 : Creation_of_Bronze_And_Silver_Tables_From_Raw_Data')
+#         status = run_with_retry(Creation_of_Bronze_And_Silver_Tables_From_Raw_Data, timeout=0)
+#         print(status, ' Step 1 Completed')
+#         step = step + 1
+#     except Exception as e:
+#         print(f"Error in Step 1: {str(e)}")
+#         raise e
 
 # COMMAND ----------
 
@@ -65,7 +77,8 @@ if step == 2 and step_end>=2:
   print('Running step 2 : Creation_Of_Gold_Tables_From_Silver_Tables')
   status = run_with_retry(Creation_Of_Gold_Tables_From_Silver_Tables, timeout=0)
   step = status_step_check(status,step)
-    
+else:
+    raise Exception("Job failed at step 2")
 
 # COMMAND ----------
 
